@@ -1,0 +1,23 @@
+docker run -it ubuntu // install the image 
+
+Containers are like empty machines, like an laptop.
+And images are the configurations, like an Operating system.
+There can be multiple containers with same image running on both of them.
+
+docker container ls // list all running containers
+docker container ls -a // all the containers even if it's not running
+
+docker start container_name // start the container
+docket stop container_name // stop the cotainer 
+
+docker exec container_name ls // execute the command and exit
+docker exec -it container_name ls // execute and enter the container
+// it stands for interactive 
+
+docker run -it -p 1022:1035 image_name // map 1035 of container to my machine 1022
+
+docker run -it -p 1022:1035 -e key=value -e key=value image_name // setting environment variable
+
+docker build -t nodejs-server . // build a docker image with configurations of Dockerfile
+
+Docker-compose is used to run multiple services at once 
