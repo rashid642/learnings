@@ -1,0 +1,21 @@
+curl --location 'http://localhost:3000/api/ds/query' \
+--header 'Authorization: Bearer glsa_mBc9m8ZrwUk9MwAdWh2XusB6nO2jhMQr_94535c47' \
+--header 'Content-Type: application/json' \
+--data '{
+    "queries": [
+        {
+        "datasource": {
+            "type": "prometheus",
+            "uid": "adt0jdpbu3t34a"
+        },
+        "expr": "http_req_res_time_bucket{route!=\"/metrics\"}",
+        "range": true,
+        "utcOffsetSec": 19800,
+        "datasourceId": 1,
+        "intervalMs": 15000,
+        "maxDataPoints": 1104
+      }
+    ],
+    "from" : "1722186063680",
+    "to": "1722189663681"
+  }'

@@ -2,3 +2,5 @@ Node server on - 8000
 Prometheus on - 9090
 Grafana on - 3000
 Loki - 3100
+
+https://gist.github.com/piyushgarg-dev/7c4016b12301552b628bbac21a11e6ab 
