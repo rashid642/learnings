@@ -1,7 +1,9 @@
 const axios = require('axios');
+require('dotenv').config();
+
 
 const GRAFANA_URL = 'http://localhost:3000'; // replace with your Grafana URL if different
-// const API_KEY = 'glsa_mBc9m8ZrwUk9MwAdWh2XusB6nO2jhMQr_94535c47'; 
+const API_KEY = process.env.GRAFANA_API_KEY
 const DASHBOARD_UID = 'PTSqcpJWk'; // dashboard UID from the URL
 
 // Function to fetch dashboard JSON from Grafana
