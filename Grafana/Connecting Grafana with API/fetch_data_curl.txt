@@ -1,5 +1,5 @@
 curl --location 'http://localhost:3000/api/ds/query' \
---header 'Authorization: Bearer glsa_mBc9m8ZrwUk9MwAdWh2XusB6nO2jhMQr_94535c47' \
+--header 'Authorization: Bearer api_key' \
 --header 'Content-Type: application/json' \
 --data '{
     "queries": [
