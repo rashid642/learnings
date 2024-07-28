@@ -1,2 +1,0 @@
-curl --location 'http://localhost:3000/api/datasources' \
---header 'Authorization: Bearer api_key'
