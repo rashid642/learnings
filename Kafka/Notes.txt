@@ -1,0 +1,20 @@
+Usage :
+1. High Throughput
+2. To send events to multiple services
+
+Components
+1. Producer : One which produces the message
+2. Consumer : One which Consumes the message
+3. Topics : For diffrent use cases or services
+            One topic can be consumed by only one Consumer
+            but one consumer can consume multiple Topics
+4. Partioning : Every topics is divided into partitions
+4. Self Balancing : If 4 partitions, and 5 consumers, then all 4 partitions will be consumed by every consumer
+                    and one of the consumer will remain ideal
+5. Consumer group : So to solve issue of ideal consumer, we created groups
+6. Zookeeper : Kafka uses internally to do the Balancing
+7. Broker : All the kafka topics are handled by Broker 
+
+
+
+

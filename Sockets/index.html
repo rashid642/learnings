@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.io Chat</title>
+    <style>
+        #chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 90vh;
+            width: 50%;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        #messages {
+            flex: 1;
+            border: 1px solid #ddd;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+            font-family: monospace;
+        }
+        #input-container {
+            display: flex;
+        }
+        #message-input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #send-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="messages"></div>
+        <div id="input-container">
+            <input id="message-input" autocomplete="off" placeholder="Type your message..." />
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const messagesDiv = document.getElementById('messages');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+
+        // Listen for chat messages from the server
+        socket.on('chat message', function(msg) {
+            const message = document.createElement('div');
+            message.textContent = msg;
+            messagesDiv.appendChild(message);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        });
+
+        // Send a message to the server when the button is clicked
+        sendButton.onclick = function() {
+            const msg = messageInput.value;
+            if (msg) {
+                socket.emit('chat message', msg);
+                messageInput.value = '';
+            }
+        };
+
+        // Also send a message when the Enter key is pressed
+        messageInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+    </script>
+</body>
+</html>
